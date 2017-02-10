@@ -51,11 +51,11 @@
 			half3 finalColor = _UpColor.rgb * max(0,dot(o.Normal, UP)) * _UpColor*(1-up.a) + max(0,dot(o.Normal, UP))*(up*(up.a));
 			finalColor += _LeftColor.rgb * max(0,dot(o.Normal, LEFT)) * _LeftColor*(1-side.a) + max(0,dot(o.Normal, LEFT))*(side*(side.a));
 			finalColor += _RightColor.rgb * max(0,dot(o.Normal, RIGHT)) * _RightColor*(1-side.a) + max(0,dot(o.Normal, RIGHT))*(side*(side.a));
-        
+
 			o.Albedo = finalColor;
 			o.Alpha = 1;
 		}
-		ENDCG             
+		ENDCG
 	}
 	FallBack "Diffuse"
 
