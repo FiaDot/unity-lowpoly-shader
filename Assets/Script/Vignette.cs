@@ -48,7 +48,6 @@ public class Vignette : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
 	void Update () 
 	{
 		VignettePower = Mathf.Clamp(VignettePower, 0.0f, 6.0f);

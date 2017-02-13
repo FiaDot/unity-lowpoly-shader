@@ -54,7 +54,6 @@ public class ScreenOverlay : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
 	void Update () 
 	{
 		opacity = Mathf.Clamp (opacity, 0.0f, 20.0f);
