@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class ScreenOverlay : MonoBehaviour {
@@ -8,6 +9,8 @@ public class ScreenOverlay : MonoBehaviour {
 	public float opacity = 0f;
 	private Material curMaterial;
 	#endregion
+
+	public Text uiText = null;
 
 	#region Properties
 	Material material
@@ -29,14 +32,28 @@ public class ScreenOverlay : MonoBehaviour {
 	{
 		if(!SystemInfo.supportsImageEffects)
 		{
+			Debug.LogWarning ("!SystemInfo.supportsImageEffects");
+			uiText.text = "!suppotImageEffeect";
 			enabled = false;
 			return;
 		}
 
-		if (!curShader && !curShader.isSupported) 
-		{
+		if (!curShader) {
+			Debug.LogWarning ("!curShader");
+			uiText.text = "!curShader";
 			enabled = false;
+			return;
 		}
+
+		if (!curShader.isSupported) 
+		{
+			Debug.LogWarning ("!isSupported");
+			uiText.text = "!isSupportedt";
+			enabled = false;
+			return;
+		}
+
+		uiText.text = "success";
 	}
 
 	void OnRenderImage (RenderTexture sourceTexture, RenderTexture destTexture)
@@ -50,8 +67,6 @@ public class ScreenOverlay : MonoBehaviour {
 		{
 			Graphics.Blit(sourceTexture, destTexture);  
 		}
-
-
 	}
 
 	void Update () 
@@ -65,7 +80,6 @@ public class ScreenOverlay : MonoBehaviour {
 		{
 			DestroyImmediate(curMaterial);  
 		}
-
 	}
 
 

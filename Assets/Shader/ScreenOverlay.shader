@@ -7,6 +7,8 @@
    SubShader {
       Tags { "Queue" = "Overlay" } 
 
+      ZTest Always
+
       Pass { 
          CGPROGRAM
  

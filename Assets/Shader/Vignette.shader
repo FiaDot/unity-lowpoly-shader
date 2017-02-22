@@ -7,6 +7,8 @@
 	}
 	SubShader 
 	{
+		ZTest Always
+
 	    Pass
 	    {	    
 		    CGPROGRAM
